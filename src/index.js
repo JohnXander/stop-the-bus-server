@@ -12,9 +12,11 @@ app.use(express.urlencoded({ extended: true }))
 
 const userRouter = require('./routers/user')
 const gameRouter = require('./routers/game')
+const teamRouter = require('./routers/team')
 
 app.use('/users', userRouter)
 app.use('/games', gameRouter)
+app.use('/teams', teamRouter)
 
 app.listen(port, () => {
     console.log(`\n Server is running on http://localhost:${port}\n`)
