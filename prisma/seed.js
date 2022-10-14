@@ -16,6 +16,72 @@ async function main() {
             }
         ]
     })
+
+    await prisma.game.createMany({
+        data: [
+            { name: 'Game 1', userId: 1 },
+            { name: 'Game 2', userId: 2 },
+        ]
+    })
+
+    await prisma.team.createMany({
+        data: [
+            {
+                name: 'Team Dog',
+                players: ['Player 1', 'Player 2', 'Player 3'],
+                gameId: 1
+            },
+            {
+                name: 'Team Cat',
+                players: ['Player A', 'Player B', 'Player C'],
+                gameId: 1
+            },
+            {
+                name: 'Team Elephant',
+                players: ['Player 1', 'Player 2', 'Player 3'],
+                gameId: 2
+            }
+        ]
+    })
+
+    await prisma.category.createMany({
+        data: [
+            { name: 'Food', gameId: 1 },
+            { name: 'Animals', gameId: 1 },
+            { name: 'Countries', gameId: 2 }
+        ]
+    })
+
+    await prisma.round.createMany({
+        data: [
+            { letter: 'S', gameId: 1 },
+            { letter: 'B', gameId: 1 },
+            { letter: 'T', gameId: 2 }
+        ]
+    })
+
+    await prisma.card.createMany({
+        data: [
+            {
+                word: 'chocolate',
+                type: 'noun',
+                imgUrl: 'choc',
+                roundId: 1
+            },
+            {
+                word: 'pizza',
+                type: 'noun',
+                imgUrl: 'pizza',
+                roundId: 1
+            },
+            {
+                word: 'apple',
+                type: 'noun',
+                imgUrl: 'apple',
+                roundId: 2
+            },
+        ]
+    })
 }
 
 main()

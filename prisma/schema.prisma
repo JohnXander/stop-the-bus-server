@@ -18,7 +18,8 @@ model User {
 
 model Game {
   id       Int        @id @default(autoincrement())
-  user     User       @relation(fields: [userId], references: [id])
+  name     String
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId   Int
   Team     Team[]
   Category Category[]
@@ -29,21 +30,21 @@ model Team {
   id      Int      @id @default(autoincrement())
   name    String
   players String[]
-  game    Game     @relation(fields: [gameId], references: [id])
+  game    Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
   gameId  Int
 }
 
 model Category {
   id     Int    @id @default(autoincrement())
-  name   String @unique
-  game   Game   @relation(fields: [gameId], references: [id])
+  name   String
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
   gameId Int
 }
 
 model Round {
   id     Int    @id @default(autoincrement())
   letter String
-  game   Game   @relation(fields: [gameId], references: [id])
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
   gameId Int
   Card   Card[]
 }
@@ -53,6 +54,6 @@ model Card {
   word    String
   type    String
   imgUrl  String
-  round   Round  @relation(fields: [roundId], references: [id])
+  round   Round  @relation(fields: [roundId], references: [id], onDelete: Cascade)
   roundId Int
 }
