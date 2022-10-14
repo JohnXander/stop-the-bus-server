@@ -12,10 +12,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send('Its working')
-})
-
 app.listen(port, () => {
     console.log(`\n Server is running on http://localhost:${port}\n`);
 });
