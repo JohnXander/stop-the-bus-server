@@ -27,17 +27,17 @@ const deleteTeam = async (req, res) => {
 }
 
 const createTeam = async (req, res) => {
-    const { name, players, gameId } = req.body
-    const team = await prisma.team.create({ data: { name, players, gameId } })
+    const { name, players, points, gameId } = req.body
+    const team = await prisma.team.create({ data: { name, players, points, gameId } })
     res.status(201).json({ team })
 }
 
 const updateTeam = async (req, res) => {
     const id = +req.params.id
-    const { name, players, gameId } = req.body
+    const { name, players, points, gameId } = req.body
     const team = await prisma.team.update({
         where: { id },
-        data: { name, players, gameId }
+        data: { name, players, points, gameId }
     })
     res.status(201).json({ team })
 }
