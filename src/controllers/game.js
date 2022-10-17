@@ -5,7 +5,7 @@ const getAllGames = async (req, res) => {
     const { userId } = req.query
     let games
 
-    if (userId) {
+    if (userId !== undefined) {
         games = await prisma.game.findMany({ where: { userId: +userId } })
     } else {
         games = await prisma.game.findMany()
