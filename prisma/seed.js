@@ -31,21 +31,25 @@ async function main() {
             {
                 name: 'Team Dog',
                 players: ['Player 1', 'Player 2', 'Player 3'],
+                points: 11,
                 gameId: 1
             },
             {
                 name: 'Team Cat',
                 players: ['Player 100', 'Player 99', 'Player 98'],
+                points: 12,
                 gameId: 1
             },
             {
                 name: 'Team Apple',
                 players: ['Player A', 'Player B', 'Player C'],
+                points: 13,
                 gameId: 2
             },
             {
                 name: 'Team Banana',
                 players: ['Player Z', 'Player Y', 'Player X'],
+                points: 14,
                 gameId: 2
             }
         ]

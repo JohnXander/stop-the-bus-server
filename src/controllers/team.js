@@ -2,7 +2,15 @@ const { PrismaClient } = require("@prisma/client")
 const prisma = new PrismaClient()
 
 const getAllTeams = async (req, res) => {
-    const teams = await prisma.team.findMany()
+    const { gameId } = req.query
+    let teams
+
+    if (gameId !== undefined) {
+        teams = await prisma.team.findMany({ where: { gameId: +gameId } })
+    } else {
+        teams = await prisma.team.findMany()
+    }
+
     res.status(200).json({ teams })
 }
 
