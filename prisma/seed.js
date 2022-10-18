@@ -19,10 +19,10 @@ async function main() {
 
     await prisma.game.createMany({
         data: [
-            { name: 'Game 1', userId: 1 },
-            { name: 'Game 2', userId: 1 },
-            { name: 'Game A', userId: 2 },
-            { name: 'Game B', userId: 2 }
+            { name: 'Unit 1 Revision', userId: 1 },
+            { name: 'Unit 2 Revision', userId: 1 },
+            { name: 'Module 1 Revision', userId: 2 },
+            { name: 'Module 2 Revision', userId: 2 }
         ]
     })
 
@@ -30,25 +30,25 @@ async function main() {
         data: [
             {
                 name: 'Team Dog',
-                players: ['Player 1', 'Player 2', 'Player 3'],
+                players: ['Kenji', 'Sergey', 'Mohammed'],
                 points: 11,
                 gameId: 1
             },
             {
                 name: 'Team Cat',
-                players: ['Player 100', 'Player 99', 'Player 98'],
+                players: ['Sofia', 'Fatima', 'Lena'],
                 points: 12,
                 gameId: 1
             },
             {
                 name: 'Team Apple',
-                players: ['Player A', 'Player B', 'Player C'],
+                players: ['Masiko', 'Angelo', 'Farhad'],
                 points: 13,
                 gameId: 2
             },
             {
                 name: 'Team Banana',
-                players: ['Player Z', 'Player Y', 'Player X'],
+                players: ['Juan', 'Adriana', 'Aisha'],
                 points: 14,
                 gameId: 2
             }
