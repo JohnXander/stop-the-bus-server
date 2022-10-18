@@ -79,24 +79,24 @@ async function main() {
 
     await prisma.card.createMany({
         data: [
-            { word: 'soup', type: 'noun', imgUrl: 'soup.com' },
-            { word: 'snake', type: 'noun', imgUrl: 'snake.com' },
-            { word: 'spain', type: 'noun', imgUrl: 'spain.com' },
-            { word: 'rice', type: 'noun', imgUrl: 'rice.com' },
-            { word: 'rat', type: 'noun', imgUrl: 'rat.com' },
-            { word: 'russia', type: 'noun', imgUrl: 'russia.com' },
-            { word: 'tacos', type: 'noun', imgUrl: 'tacos.com' },
-            { word: 'tiger', type: 'noun', imgUrl: 'tiger.com' },
-            { word: 'thailand', type: 'noun', imgUrl: 'thailand.com' },
-            { word: 'burger', type: 'noun', imgUrl: 'burger.com' },
-            { word: 'bear', type: 'noun', imgUrl: 'bear.com' },
-            { word: 'bolivia', type: 'noun', imgUrl: 'bolivia.com' },
-            { word: 'fries', type: 'noun', imgUrl: 'fries.com' },
-            { word: 'fox', type: 'noun', imgUrl: 'fox.com' },
-            { word: 'france', type: 'noun', imgUrl: 'france.com' },
-            { word: 'waffles', type: 'noun', imgUrl: 'waffles.com' },
-            { word: 'walrus', type: 'noun', imgUrl: 'walrus.com' },
-            { word: 'wales', type: 'noun', imgUrl: 'wales.com' }
+            { word: 'soup', type: 'noun', imgUrl: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1074500_11-ee0d41a.jpg' },
+            { word: 'snake', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/12_-_The_Mystical_King_Cobra_and_Coffee_Forests.jpg' },
+            { word: 'spain', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png' },
+            { word: 'rice', type: 'noun', imgUrl: 'https://cdn.loveandlemons.com/wp-content/uploads/2020/03/how-to-cook-rice.jpg' },
+            { word: 'rat', type: 'noun', imgUrl: 'https://cdn.britannica.com/26/65326-050-53232216/Norway-rat.jpg?q=60' },
+            { word: 'russia', type: 'noun', imgUrl: 'https://cdn.britannica.com/42/3842-004-F47B77BC/Flag-Russia.jpg' },
+            { word: 'tacos', type: 'noun', imgUrl: 'https://img.taste.com.au/w_-0kcUJ/taste/2016/11/aussie-style-beef-and-salad-tacos-86525-1.jpeg' },
+            { word: 'tiger', type: 'noun', imgUrl: 'https://files.worldwildlife.org/wwfcmsprod/images/Tiger_resting_Bandhavgarh_National_Park_India/hero_small/6aofsvaglm_Medium_WW226365.jpg' },
+            { word: 'thailand', type: 'noun', imgUrl: 'https://c4.wallpaperflare.com/wallpaper/698/202/493/thailand-flag-national-symbol-thailand-large-flag-flag-of-thailand-hd-wallpaper-preview.jpg' },
+            { word: 'burger', type: 'noun', imgUrl: 'https://realfood.tesco.com/media/images/Burger-31LGH-a296a356-020c-4969-86e8-d8c26139f83f-0-1400x919.jpg' },
+            { word: 'bear', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2010-kodiak-bear-1.jpg/1200px-2010-kodiak-bear-1.jpg' },
+            { word: 'bolivia', type: 'noun', imgUrl: 'https://cdn.britannica.com/54/6754-004-AE3C4294/Flag-Bolivia.jpg' },
+            { word: 'fries', type: 'noun', imgUrl: 'https://www.seriouseats.com/thmb/_BkW9V2wK3Zed-zQAETkRSJS8ac=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2018__04__20180309-french-fries-vicky-wasik-15-5a9844742c2446c7a7be9fbd41b6e27d.jpg' },
+            { word: 'fox', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg/800px-2014-06-20_Vulpes_vulpes_vulpes%2C_B%C3%B6nhamn%2C_V%C3%A4sternorrlands_L%C3%A4n%2C_Sverige_1.jpg' },
+            { word: 'france', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png' },
+            { word: 'waffles', type: 'noun', imgUrl: 'https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/2020_belgian-style-waffles_16700_760x580.jpg?ext=.jpg' },
+            { word: 'walrus', type: 'noun', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Pacific_Walrus_-_Bull_%288247646168%29.jpg' },
+            { word: 'wales', type: 'noun', imgUrl: 'https://cdn.britannica.com/62/4962-004-7D6CF6DB/Flag-Wales.jpg' }
         ]
     })
 }
