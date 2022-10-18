@@ -2,7 +2,15 @@ const { PrismaClient } = require("@prisma/client")
 const prisma = new PrismaClient()
 
 const getAllRounds = async (req, res) => {
-    const rounds = await prisma.round.findMany()
+    const { gameId } = req.query
+    let rounds
+
+    if (gameId !== undefined) {
+        rounds = await prisma.round.findMany({ where: { gameId: +gameId } })
+    } else {
+        rounds = await prisma.round.findMany()
+    }
+
     res.status(200).json({ rounds })
 }
 
