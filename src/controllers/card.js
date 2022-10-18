@@ -2,7 +2,15 @@ const { PrismaClient } = require("@prisma/client")
 const prisma = new PrismaClient()
 
 const getAllCards = async (req, res) => {
-    const cards = await prisma.card.findMany()
+    const { word } = req.query
+    let cards
+
+    if (word !== undefined) {
+        cards = await prisma.card.findMany({ where: { word } })
+    } else {
+        cards = await prisma.card.findMany()
+    }
+
     res.status(200).json({ cards })
 }
 

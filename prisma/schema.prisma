@@ -48,14 +48,11 @@ model Round {
   answers String[]
   game    Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
   gameId  Int
-  Card    Card[]
 }
 
 model Card {
-  id      Int    @id @default(autoincrement())
-  word    String
-  type    String
-  imgUrl  String
-  round   Round  @relation(fields: [roundId], references: [id], onDelete: Cascade)
-  roundId Int
+  id     Int    @id @default(autoincrement())
+  word   String @unique
+  type   String
+  imgUrl String
 }

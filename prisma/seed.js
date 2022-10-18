@@ -73,48 +73,30 @@ async function main() {
             { letter: 'T', answers: ['tacos', 'tiger', 'thailand'], gameId: 1 },
             { letter: 'B', answers: ['burger', 'bear', 'bolivia'], gameId: 2 },
             { letter: 'F', answers: ['fries', 'fox', 'france'], gameId: 2 },
-            { letter: 'W', answers: ['waffles', 'whale', 'wales'], gameId: 2 }
+            { letter: 'W', answers: ['waffles', 'walrus', 'wales'], gameId: 2 }
         ]
     })
 
     await prisma.card.createMany({
         data: [
-            {
-                word: 'sausage',
-                type: 'noun',
-                imgUrl: 'sausage.com',
-                roundId: 1
-            },
-            {
-                word: 'snake',
-                type: 'noun',
-                imgUrl: 'snake.com',
-                roundId: 1
-            },
-            {
-                word: 'spain',
-                type: 'noun',
-                imgUrl: 'spain.com',
-                roundId: 1
-            },
-            {
-                word: 'brick',
-                type: 'noun',
-                imgUrl: 'brick.com',
-                roundId: 2
-            },
-            {
-                word: 'find',
-                type: 'noun',
-                imgUrl: 'find.com',
-                roundId: 2
-            },
-            {
-                word: 'white',
-                type: 'noun',
-                imgUrl: 'white.com',
-                roundId: 2
-            },
+            { word: 'soup', type: 'noun', imgUrl: 'soup.com' },
+            { word: 'snake', type: 'noun', imgUrl: 'snake.com' },
+            { word: 'spain', type: 'noun', imgUrl: 'spain.com' },
+            { word: 'rice', type: 'noun', imgUrl: 'rice.com' },
+            { word: 'rat', type: 'noun', imgUrl: 'rat.com' },
+            { word: 'russia', type: 'noun', imgUrl: 'russia.com' },
+            { word: 'tacos', type: 'noun', imgUrl: 'tacos.com' },
+            { word: 'tiger', type: 'noun', imgUrl: 'tiger.com' },
+            { word: 'thailand', type: 'noun', imgUrl: 'thailand.com' },
+            { word: 'burger', type: 'noun', imgUrl: 'burger.com' },
+            { word: 'bear', type: 'noun', imgUrl: 'bear.com' },
+            { word: 'bolivia', type: 'noun', imgUrl: 'bolivia.com' },
+            { word: 'fries', type: 'noun', imgUrl: 'fries.com' },
+            { word: 'fox', type: 'noun', imgUrl: 'fox.com' },
+            { word: 'france', type: 'noun', imgUrl: 'france.com' },
+            { word: 'waffles', type: 'noun', imgUrl: 'waffles.com' },
+            { word: 'walrus', type: 'noun', imgUrl: 'walrus.com' },
+            { word: 'wales', type: 'noun', imgUrl: 'wales.com' }
         ]
     })
 }
