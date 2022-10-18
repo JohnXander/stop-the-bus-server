@@ -68,12 +68,12 @@ async function main() {
 
     await prisma.round.createMany({
         data: [
-            { letter: 'S', gameId: 1 },
-            { letter: 'R', gameId: 1 },
-            { letter: 'T', gameId: 1 },
-            { letter: 'B', gameId: 2 },
-            { letter: 'F', gameId: 2 },
-            { letter: 'W', gameId: 2 }
+            { letter: 'S', answers: ['soup', 'snake', 'spain'], gameId: 1 },
+            { letter: 'R', answers: ['rice', 'rat', 'russia'], gameId: 1 },
+            { letter: 'T', answers: ['tacos', 'tiger', 'thailand'], gameId: 1 },
+            { letter: 'B', answers: ['burger', 'bear', 'bolivia'], gameId: 2 },
+            { letter: 'F', answers: ['fries', 'fox', 'france'], gameId: 2 },
+            { letter: 'W', answers: ['waffles', 'whale', 'wales'], gameId: 2 }
         ]
     })
 

@@ -27,17 +27,17 @@ const deleteRound = async (req, res) => {
 }
 
 const createRound = async (req, res) => {
-    const { letter, gameId } = req.body
-    const round = await prisma.round.create({ data: { letter, gameId } })
+    const { letter, answers, gameId } = req.body
+    const round = await prisma.round.create({ data: { letter, answers, gameId } })
     res.status(201).json({ round })
 }
 
 const updateRound = async (req, res) => {
     const id = +req.params.id
-    const { letter, gameId } = req.body
+    const { letter, answers, gameId } = req.body
     const round = await prisma.round.update({
         where: { id },
-        data: { letter, gameId }
+        data: { letter, answers, gameId }
     })
     res.status(201).json({ round })
 }

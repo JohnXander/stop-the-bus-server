@@ -43,11 +43,12 @@ model Category {
 }
 
 model Round {
-  id     Int    @id @default(autoincrement())
-  letter String
-  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
-  gameId Int
-  Card   Card[]
+  id      Int      @id @default(autoincrement())
+  letter  String
+  answers String[]
+  game    Game     @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  gameId  Int
+  Card    Card[]
 }
 
 model Card {
