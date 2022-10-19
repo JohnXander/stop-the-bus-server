@@ -30,25 +30,21 @@ async function main() {
         data: [
             {
                 name: 'Team Dog',
-                players: ['Kenji', 'Sergey', 'Mohammed'],
                 points: 11,
                 gameId: 1
             },
             {
                 name: 'Team Cat',
-                players: ['Sofia', 'Fatima', 'Lena'],
                 points: 12,
                 gameId: 1
             },
             {
                 name: 'Team Apple',
-                players: ['Masiko', 'Angelo', 'Farhad'],
                 points: 13,
                 gameId: 2
             },
             {
                 name: 'Team Banana',
-                players: ['Juan', 'Adriana', 'Aisha'],
                 points: 14,
                 gameId: 2
             }
