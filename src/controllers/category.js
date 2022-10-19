@@ -26,10 +26,13 @@ const deleteCategory = async (req, res) => {
     res.status(201).json({ category })
 }
 
-const createCategory = async (req, res) => {
-    const { name, gameId } = req.body
-    const category = await prisma.category.create({ data: { name, gameId } })
-    res.status(201).json({ category })
+const createCategories = async (req, res) => {
+    const { categories, gameId } = req.body
+    const data = categories.map(name => {
+        return { name, gameId }
+    })
+    await prisma.category.createMany({ data })
+    res.status(201).json({ createdCategories: data })
 }
 
 const updateCategory = async (req, res) => {
@@ -46,6 +49,6 @@ module.exports = {
     getAllCategories,
     getCategory,
     deleteCategory,
-    createCategory,
+    createCategories,
     updateCategory
 }
