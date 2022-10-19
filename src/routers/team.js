@@ -3,7 +3,7 @@ const {
     getAllTeams,
     getTeam,
     deleteTeam,
-    createTeam,
+    createTeams,
     updateTeam
 } = require('../controllers/team')
 const router = express.Router()
@@ -11,7 +11,7 @@ const router = express.Router()
 router.get("/", getAllTeams)
 router.get("/:id", getTeam)
 router.delete("/:id", deleteTeam)
-router.post("/", createTeam)
+router.post("/", createTeams)
 router.patch("/:id", updateTeam)
 
 module.exports = router

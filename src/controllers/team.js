@@ -26,10 +26,13 @@ const deleteTeam = async (req, res) => {
     res.status(201).json({ team })
 }
 
-const createTeam = async (req, res) => {
-    const { name, points, gameId } = req.body
-    const team = await prisma.team.create({ data: { name, points, gameId } })
-    res.status(201).json({ team })
+const createTeams = async (req, res) => {
+    const { teams, gameId } = req.body
+    const data = teams.map(name => {
+        return { name, points: 0, gameId }
+    })
+    const createdTeams = await prisma.team.createMany({ data })
+    res.status(201).json({ createdTeams })
 }
 
 const updateTeam = async (req, res) => {
@@ -46,6 +49,6 @@ module.exports = {
     getAllTeams,
     getTeam,
     deleteTeam,
-    createTeam,
+    createTeams,
     updateTeam
 }
