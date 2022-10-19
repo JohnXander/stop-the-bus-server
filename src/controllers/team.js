@@ -31,8 +31,8 @@ const createTeams = async (req, res) => {
     const data = teams.map(name => {
         return { name, points: 0, gameId }
     })
-    const createdTeams = await prisma.team.createMany({ data })
-    res.status(201).json({ createdTeams })
+    await prisma.team.createMany({ data })
+    res.status(201).json({ createdTeams: data })
 }
 
 const updateTeam = async (req, res) => {
