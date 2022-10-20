@@ -36,8 +36,8 @@ const deleteCard = async (req, res) => {
 }
 
 const createCard = async (req, res) => {
-    const { word, type, imgUrl, roundId } = req.body
-    const card = await prisma.card.create({ data: { word, type, imgUrl, roundId } })
+    const { word, type, imgUrl } = req.body
+    const card = await prisma.card.create({ data: { word, type, imgUrl } })
     res.status(201).json({ card })
 }
 
