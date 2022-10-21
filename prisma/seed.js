@@ -19,10 +19,10 @@ async function main() {
 
     await prisma.game.createMany({
         data: [
-            { name: 'Unit 1 Revision', userId: 1 },
-            { name: 'Unit 2 Revision', userId: 1 },
-            { name: 'Module 1 Revision', userId: 2 },
-            { name: 'Module 2 Revision', userId: 2 }
+            { name: 'Unit 1 Revision', completed: true, userId: 1 },
+            { name: 'Unit 2 Revision', completed: false, userId: 1 },
+            { name: 'Module 1 Revision', completed: true, userId: 2 },
+            { name: 'Module 2 Revision', completed: false, userId: 2 }
         ]
     })
 

@@ -18,13 +18,14 @@ model User {
 }
 
 model Game {
-  id       Int        @id @default(autoincrement())
-  name     String
-  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId   Int
-  Team     Team[]
-  Category Category[]
-  Round    Round[]
+  id        Int        @id @default(autoincrement())
+  name      String
+  completed Boolean
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  Team      Team[]
+  Category  Category[]
+  Round     Round[]
 }
 
 model Team {
