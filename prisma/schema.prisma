@@ -14,6 +14,7 @@ model User {
   password String
   imgUrl   String
   Game     Game[]
+  Card     Card[]
 }
 
 model Game {
@@ -54,4 +55,6 @@ model Card {
   word   String @unique
   type   String
   imgUrl String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int
 }
