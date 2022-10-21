@@ -1,7 +1,7 @@
 const prisma = require('../utils/prisma')
 
 const getAllCards = async (req, res) => {
-    const { words } = req.query
+    const { words, userId } = req.query
     let cards
 
     if (words !== undefined) {
@@ -15,6 +15,8 @@ const getAllCards = async (req, res) => {
                 ]
             },
         })
+    } else if (userId !== undefined) {
+        cards = await prisma.card.findMany({ where: { userId: +userId } })
     } else {
         cards = await prisma.card.findMany()
     }
