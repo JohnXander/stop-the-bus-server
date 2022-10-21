@@ -1,4 +1,3 @@
-const { Prisma } = require("@prisma/client")
 const prisma = require('../utils/prisma')
 
 const getAllTeams = async (req, res) => {
