@@ -1,5 +1,16 @@
 const prisma = require('../utils/prisma')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+const loginUser = async (req, res) => {
+    const { username, password } = req.body
+    const foundUser = await prisma.user.findUnique({ where: { username } })
+    const passwordsMatch = await bcrypt.compare(password, foundUser.password)
+    if (passwordsMatch) {
+        const token = jwt.sign({ username }, process.env.JWT_SECRET)
+        res.status(201).json({ token })
+    }
+}
 
 const getAllUsers = async (req, res) => {
     const { username } = req.query
@@ -49,5 +60,6 @@ module.exports = {
     getUser,
     deleteUser,
     createUser,
-    updateUser
+    updateUser,
+    loginUser
 }
