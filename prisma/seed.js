@@ -6,7 +6,7 @@ async function main() {
         data: [
             {
                 username: 'John1',
-                password: 'john1',
+                password: '$2b$10$sU7anN5vGOR6t/OOLQeGYu70aHXGkBGEn5OlNgKLZYFKy6g/5ZXj.',
                 imgUrl: 'https://www.gilpa.co.uk/wp-content/uploads/2015/06/dsc_4223.jpg'
             },
             {
