@@ -1,7 +1,14 @@
 const prisma = require('../utils/prisma')
 
 const getAllUsers = async (req, res) => {
-    const users = await prisma.user.findMany()
+    const { username } = req.query
+    let users
+
+    if (username !== undefined) {
+        users = await prisma.user.findMany({ where: { username } })
+    } else {
+        users = await prisma.user.findMany()
+    }
     res.status(200).json({ users })
 }
 
@@ -18,19 +25,19 @@ const deleteUser = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-    const { username, password, imgUrl } = req.body
+    const { username, email, password, imgUrl } = req.body
     const user = await prisma.user.create({
-        data: { username, password, imgUrl }
+        data: { username, email, password, imgUrl }
     })
     res.status(201).json({ user })
 }
 
 const updateUser = async (req, res) => {
     const id = +req.params.id
-    const { username, password, imgUrl } = req.body
+    const { username, email, password, imgUrl } = req.body
     const user = await prisma.user.update({
         where: { id },
-        data: { username, password, imgUrl }
+        data: { username, email, password, imgUrl }
     })
     res.status(201).json({ user })
 }
