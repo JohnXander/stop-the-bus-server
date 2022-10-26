@@ -1,4 +1,5 @@
 const prisma = require('../utils/prisma')
+const bcrypt = require('bcrypt');
 
 const getAllUsers = async (req, res) => {
     const { username } = req.query
@@ -26,8 +27,9 @@ const deleteUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     const { username, password, imgUrl } = req.body
+    const hashedPwd = await bcrypt.hash(password, 10)
     const user = await prisma.user.create({
-        data: { username, password, imgUrl }
+        data: { username, password: hashedPwd, imgUrl }
     })
     res.status(201).json({ user })
 }
