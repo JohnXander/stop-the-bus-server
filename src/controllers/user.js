@@ -25,19 +25,19 @@ const deleteUser = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-    const { username, email, password, imgUrl } = req.body
+    const { username, password, imgUrl } = req.body
     const user = await prisma.user.create({
-        data: { username, email, password, imgUrl }
+        data: { username, password, imgUrl }
     })
     res.status(201).json({ user })
 }
 
 const updateUser = async (req, res) => {
     const id = +req.params.id
-    const { username, email, password, imgUrl } = req.body
+    const { username, password, imgUrl } = req.body
     const user = await prisma.user.update({
         where: { id },
-        data: { username, email, password, imgUrl }
+        data: { username, password, imgUrl }
     })
     res.status(201).json({ user })
 }

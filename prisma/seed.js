@@ -6,13 +6,11 @@ async function main() {
         data: [
             {
                 username: 'John1',
-                email: 'John1@school.com',
                 password: 'john1',
                 imgUrl: 'https://www.gilpa.co.uk/wp-content/uploads/2015/06/dsc_4223.jpg'
             },
             {
                 username: 'John2',
-                email: 'John2@school.com',
                 password: 'john2',
                 imgUrl: 'https://www.ukpets.com/oc-content/uploads/breeds/0/4265.jpg'
             }
