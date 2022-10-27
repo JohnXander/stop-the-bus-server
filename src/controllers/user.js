@@ -5,10 +5,16 @@ const jwt = require('jsonwebtoken')
 const loginUser = async (req, res) => {
     const { username, password } = req.body
     const foundUser = await prisma.user.findUnique({ where: { username } })
-    const passwordsMatch = await bcrypt.compare(password, foundUser.password)
-    if (passwordsMatch) {
-        const token = jwt.sign({ username }, process.env.JWT_SECRET)
-        res.status(201).json({ token })
+    if (foundUser === null) {
+        res.status(403).json({ error: 'Username or password is incorrect' })
+    } else {
+        const passwordsMatch = await bcrypt.compare(password, foundUser.password)
+        if (!passwordsMatch) {
+            res.status(403).json({ error: 'Username or password is incorrect' })
+        } else {
+            const token = jwt.sign({ username }, process.env.JWT_SECRET)
+            res.status(201).json({ token })
+        }
     }
 }
 
@@ -40,7 +46,7 @@ const createUser = async (req, res) => {
     const { username, password, imgUrl } = req.body
     const exists = await prisma.user.findUnique({ where: { username } })
     if (exists !== null) {
-        res.status(409).json({ error: 'User already exists' })
+        res.status(409).json({ error: 'Username already taken' })
     } else {
         const hashedPwd = await bcrypt.hash(password, 10)
         const user = await prisma.user.create({
