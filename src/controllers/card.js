@@ -4,7 +4,7 @@ const getAllCards = async (req, res) => {
     const { words, userId } = req.query
     let cards
 
-    if (words !== undefined) {
+    if (words !== undefined && userId !== undefined) {
         const wordArray = words.split(',')
         cards = await prisma.card.findMany({
             where: {
@@ -12,7 +12,8 @@ const getAllCards = async (req, res) => {
                     { word: wordArray[0] },
                     { word: wordArray[1] },
                     { word: wordArray[2] }
-                ]
+                ],
+                AND: { userId: +userId }
             },
         })
     } else if (userId !== undefined) {
