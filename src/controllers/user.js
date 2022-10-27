@@ -38,11 +38,16 @@ const deleteUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     const { username, password, imgUrl } = req.body
-    const hashedPwd = await bcrypt.hash(password, 10)
-    const user = await prisma.user.create({
-        data: { username, password: hashedPwd, imgUrl }
-    })
-    res.status(201).json({ user })
+    const exists = await prisma.user.findUnique({ where: { username } })
+    if (exists !== null) {
+        res.status(409).json({ error: 'User already exists' })
+    } else {
+        const hashedPwd = await bcrypt.hash(password, 10)
+        const user = await prisma.user.create({
+            data: { username, password: hashedPwd, imgUrl }
+        })
+        res.status(201).json({ user })
+    }
 }
 
 const updateUser = async (req, res) => {
