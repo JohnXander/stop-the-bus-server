@@ -59,11 +59,27 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const id = +req.params.id
     const { username, password, imgUrl } = req.body
-    const user = await prisma.user.update({
-        where: { id },
-        data: { username, password, imgUrl }
-    })
-    res.status(201).json({ user })
+    const original = await prisma.user.findUnique({ where: { id } })
+    if (original.username === username) {
+        const hashedPwd = await bcrypt.hash(password, 10)
+        const user = await prisma.user.update({
+            where: { id },
+            data: { username, password: hashedPwd, imgUrl }
+        })
+        res.status(201).json({ user })
+    } else {
+        const exists = await prisma.user.findUnique({ where: { username } })
+        if (exists !== null) {
+            res.status(409).json({ error: 'Username already taken' })
+        } else {
+            const hashedPwd = await bcrypt.hash(password, 10)
+            const user = await prisma.user.update({
+                where: { id },
+                data: { username, password: hashedPwd, imgUrl }
+            })
+            res.status(201).json({ user })
+        }
+    }
 }
 
 module.exports = {
